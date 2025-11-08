@@ -1,5 +1,5 @@
 #:schema node_modules/wrangler/config-schema.json
-name = "reverse-house"
+name = "reverse-mortgage"
 main = "./.svelte-kit/cloudflare/_worker.js"
 compatibility_date = "2025-01-08"
 
