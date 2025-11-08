@@ -6,8 +6,8 @@
 	 */
 
 	// PRIMARY INPUTS (all regular $state - user editable)
-	let monthlyPayment = $state(3000);
-	let downPayment = $state(50000);
+	let monthlyPayment = $state(1600);
+	let downPayment = $state(313000);
 	let additionalDownPayment = $state(0);
 	let interestRate = $state(7.0);
 	let loanTermYears = $state(30);
@@ -27,8 +27,8 @@
 		const numberOfPayments = loanTermYears * 12;
 
 		// Reverse mortgage formula
-		const principal = monthlyPayment *
-			(Math.pow(1 + monthlyRate, numberOfPayments) - 1) /
+		const principal =
+			(monthlyPayment * (Math.pow(1 + monthlyRate, numberOfPayments) - 1)) /
 			(monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments));
 
 		return principal;
@@ -55,7 +55,7 @@
 			style: 'currency',
 			currency: 'USD',
 			minimumFractionDigits: 0,
-			maximumFractionDigits: 0,
+			maximumFractionDigits: 0
 		}).format(value);
 	}
 
@@ -80,7 +80,9 @@
 
 <div class="mortgage-calculator">
 	<h1>Reverse Mortgage Calculator</h1>
-	<p class="subtitle">Calculate what house price you can afford based on your desired monthly payment</p>
+	<p class="subtitle">
+		Calculate what house price you can afford based on your desired monthly payment
+	</p>
 
 	<div class="calculator-grid">
 		<!-- Input Section -->
@@ -107,13 +109,7 @@
 					<label for="down-payment">
 						<span class="label-text">Down Payment</span>
 					</label>
-					<input
-						id="down-payment"
-						type="number"
-						bind:value={downPayment}
-						step="1000"
-						min="0"
-					/>
+					<input id="down-payment" type="number" bind:value={downPayment} step="1000" min="0" />
 				</div>
 
 				<div class="input-group">
@@ -136,13 +132,7 @@
 						<span class="label-text">Interest Rate (%)</span>
 						<span class="label-hint">Colorado default: 7.0%</span>
 					</label>
-					<input
-						id="interest-rate"
-						type="number"
-						bind:value={interestRate}
-						step="0.1"
-						min="0"
-					/>
+					<input id="interest-rate" type="number" bind:value={interestRate} step="0.1" min="0" />
 				</div>
 
 				<div class="input-group">
@@ -217,7 +207,12 @@
 		max-width: 1400px;
 		margin: 0 auto;
 		padding: 2rem;
-		font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+		font-family:
+			system-ui,
+			-apple-system,
+			BlinkMacSystemFont,
+			'Segoe UI',
+			sans-serif;
 	}
 
 	h1 {
@@ -316,7 +311,7 @@
 		font-weight: 400;
 	}
 
-	input[type="number"] {
+	input[type='number'] {
 		padding: 0.75rem;
 		font-size: 1rem;
 		border: 2px solid #d1d5db;
@@ -326,7 +321,7 @@
 		font-family: inherit;
 	}
 
-	input[type="number"]:focus {
+	input[type='number']:focus {
 		outline: none;
 		border-color: #667eea;
 		box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
@@ -434,13 +429,13 @@
 	}
 
 	/* Remove spinner from number inputs */
-	input[type="number"]::-webkit-inner-spin-button,
-	input[type="number"]::-webkit-outer-spin-button {
+	input[type='number']::-webkit-inner-spin-button,
+	input[type='number']::-webkit-outer-spin-button {
 		-webkit-appearance: none;
 		margin: 0;
 	}
 
-	input[type="number"] {
+	input[type='number'] {
 		-moz-appearance: textfield;
 	}
 </style>
